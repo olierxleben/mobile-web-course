@@ -56,11 +56,11 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   address.innerHTML = restaurant.address;
 
   const image = document.getElementById('restaurant-img');
-  // add alt tag to images.
+  // descriptive restaurant.
   image.alt = "Showing restaurant is " + restaurant.name + " and cuisine type is " + restaurant.cuisine_type;
   image.className = 'restaurant-img'
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  //add srcset and sizes to make responsive images.
+  // responsive images via srcset and seizes.
   image.srcset =  `images/${restaurant.id}-400small.jpg 480w,images/${restaurant.id}-600medium.jpg 600w`;
   image.sizes =  "(max-width: 600px) 80vw,(min-width: 601px) 50vw";
 
@@ -102,7 +102,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h3');
   title.innerHTML = 'Reviews';
-  //add tabindex to title
+  // add tabindex to title
   title.setAttribute('tabindex', '0');
   container.appendChild(title);
 
@@ -126,25 +126,25 @@ createReviewHTML = (review) => {
   const li = document.createElement('li');
   const name = document.createElement('p');
   name.innerHTML = review.name;
-  //add id to review name.
+  // add id to review name.
   name.setAttribute('id', 'name' + review.name);
-  //add tabindex
+  // add tabindex
   name.setAttribute('tabindex', '0');
   li.appendChild(name);
 
   const date = document.createElement('p');
   date.innerHTML = review.date;
-  //add id to review date.
+  // add id to review date.
   date.setAttribute('id', 'date' + review.name);
-  //add tabindex
+  // add tabindex
   date.setAttribute('tabindex', '0');
   li.appendChild(date);
 
   const rating = document.createElement('p');
   rating.innerHTML = `Rating: ${review.rating}`;
-  //add id to review rating.
+  // add id to review rating.
   rating.setAttribute('id', 'rating' + review.name);
-  //add tabindex
+  // add tabindex
   rating.setAttribute('tabindex', '0');
   li.appendChild(rating);
 
