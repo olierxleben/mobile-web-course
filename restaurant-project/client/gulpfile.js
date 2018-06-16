@@ -1,18 +1,34 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
-const auto = require('gulp-autoprefixer');
+const prfx = require('gulp-autoprefixer');
 const sync = require('browser-sync').create();
+const lint = require('gulp-eslint');
+
+const PATHS = {
+  js: 'js/**/*.js',
+  sass: 'sass/**/*.scss'
+}
 
 gulp.task('styles', () =>{
-  gulp
-    .src('sass/**/*.scss')
+  return gulp
+    .src(PATHS.sass)
     .pipe(sass())
-    .pipe(auto())
+    .pipe(prfx())
     .pipe(gulp.dest('css/'));
 })
 
+gulp.task('lint', () => {
+  return gulp
+    .src(PATHS.js)
+    .pipe(lint())
+    .pipe(lint.format())
+    .pipe(lint.failOnError);
+})
+
 gulp.task('default', () => {
-  gulp.watch('sass/**/*.scss', ['styles']);
+  gulp.watch(PATHS.sass, ['styles']);
+  gulp.watch(PATHS.js, ['lint']);
+  
   sync.init({
     server: './'
   })
