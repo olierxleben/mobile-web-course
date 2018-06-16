@@ -3,6 +3,7 @@ const sass = require('gulp-sass');
 const prfx = require('gulp-autoprefixer');
 const sync = require('browser-sync').create();
 const lint = require('gulp-eslint');
+const jasm = require('gulp-jasmine-phantom');
 
 const PATHS = {
   js: 'js/**/*.js',
@@ -24,6 +25,11 @@ gulp.task('lint', () => {
     .pipe(lint.format())
     .pipe(lint.failOnError);
 })
+
+gulp.task('tests', () => {
+  return gulp.src('spec/**/*.spec.js')
+  .pipe(jasm())
+});
 
 gulp.task('default', () => {
   gulp.watch(PATHS.sass, ['styles']);
