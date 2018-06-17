@@ -4,7 +4,7 @@
   "description": "--- #### _Three Stage Course Material Project - Restaurant Reviews_",
   "main": "Gruntfile.js",
   "scripts": {
-    "dev": "npm run gulp",
+    "dev": "npm run gulp webserver",
     "gulp": "gulp",
     "test": "gulp tests"
   },
@@ -20,10 +20,20 @@
   },
   "homepage": "https://github.com/olivererxleben/mws-restaurant-stage-1#readme",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.24.4",
     "eslint": "^4.19.1",
     "gulp-autoprefixer": "^5.0.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-environments": "^0.1.2",
     "gulp-eslint": "^4.0.2",
+    "gulp-gzip": "^1.4.2",
+    "gulp-minify": "^3.0.2",
+    "gulp-responsive-images": "0.0.3",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-webserver": "^0.9.1",
     "http-server": "^0.11.1",
     "phantomjs": "^2.1.7"
   },
