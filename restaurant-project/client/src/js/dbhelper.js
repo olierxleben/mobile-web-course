@@ -11,26 +11,40 @@ class DBHelper {
     // const port = 8000;
     // const serverextension = "http://127.0.0.1:8887/";
     //return `http://localhost:${port}/data/restaurants.json`;
-    return `/data/restaurants.json`;
+    // return `/data/restaurants.json`;
+
+    return 'http://localhost:1337/restaurants/'
   }
 
   /**
    * Fetch all restaurants.
    */
   static fetchRestaurants(callback) {
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', DBHelper.DATABASE_URL);
-    xhr.onload = () => {
-      if (xhr.status === 200) { // Got a success response from server!
-        const json = JSON.parse(xhr.responseText);
-        const restaurants = json.restaurants;
-        callback(null, restaurants);
-      } else { // Oops!. Got an error from server.
-        const error = (`Request failed. Returned status of ${xhr.status}`);
-        callback(error, null);
-      }
-    };
-    xhr.send();
+
+    fetch(
+      DBHelper.DATABASE_URL, 
+      { method: 'get'}
+    )
+    .then( (response) => response.json())
+    .then( (json) => {
+      callback(null, json);
+    }) 
+
+    // let xhr = new XMLHttpRequest();
+    // xhr.open('GET', DBHelper.DATABASE_URL);
+    // xhr.onload = () => {
+    //   if (xhr.status === 200) { // Got a success response from server!
+        
+    //     const json = JSON.parse(xhr.responseText);
+    //     console.log(json);
+        
+    //     callback(null, json);
+    //   } else { // Oops!. Got an error from server.
+    //     const error = (`Request failed. Returned status of ${xhr.status}`);
+    //     callback(error, null);
+    //   }
+    // };
+    // xhr.send();
   }
 
   /**

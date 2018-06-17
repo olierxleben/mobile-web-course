@@ -185,14 +185,14 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 }
-/**
- * Service worker registeration.
- */
-if (('serviceWorker' in navigator)) {
-  console.log('Service worker supported');
-  navigator.serviceWorker.register('/sw.js').then(function(reg) {
-   // console.log('Registered', reg);
-  }).catch(function(error) {
-    console.log('Registration failed:', error);
-  });
-}
+// /**
+//  * Service worker registeration.
+//  */
+// if (('serviceWorker' in navigator)) {
+//   console.log('Service worker supported');
+//   navigator.serviceWorker.register('/sw.js').then(function(reg) {
+//    // console.log('Registered', reg);
+//   }).catch(function(error) {
+//     console.log('Registration failed:', error);
+//   });
+// }
