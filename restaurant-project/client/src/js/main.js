@@ -147,7 +147,7 @@ createRestaurantHTML = (restaurant) => {
   // add alt tag to images.
   image.alt = "showing restaurant is " + restaurant.name + " and cuisine type is " + restaurant.cuisine_type;
   // add srcset and sizes to make responsive images.
-  image.srcset =  `images/${restaurant.id}-400small.jpg 480w,images/${restaurant.id}-600medium.jpg 600w`;
+  image.srcset =  `images/${restaurant.id}_400.jpg 480w,images/${restaurant.id}_600.jpg 600w`;
   image.sizes =  "(max-width: 600px) 60vw,(min-width: 601px) 50vw";
 
   li.append(image);
@@ -185,14 +185,14 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 }
-// /**
-//  * Service worker registeration.
-//  */
-// if (('serviceWorker' in navigator)) {
-//   console.log('Service worker supported');
-//   navigator.serviceWorker.register('/sw.js').then(function(reg) {
-//    // console.log('Registered', reg);
-//   }).catch(function(error) {
-//     console.log('Registration failed:', error);
-//   });
-// }
+/**
+ * Service worker registeration.
+ */
+if (('serviceWorker' in navigator)) {
+  console.log('Service worker supported');
+  navigator.serviceWorker.register('/sw.js').then(function(reg) {
+   // console.log('Registered', reg);
+  }).catch(function(error) {
+    console.log('Registration failed:', error);
+  });
+}
