@@ -2,33 +2,44 @@
  * Common database helper functions.
  */
 class DBHelper {
-
+    
   /**
    * Database URL.
    * Change this to restaurants.json file location on your server.
    */
-  static get DATABASE_URL() {
-    // const port = 8000;
-    // const serverextension = "http://127.0.0.1:8887/";
-    //return `http://localhost:${port}/data/restaurants.json`;
-    // return `/data/restaurants.json`;
+  static DATABASE_URL() {
 
-    return 'http://localhost:1337/restaurants/'
-  }
+    return 'http://localhost:1337/restaurants/';
+  } 
+
+  
 
   /**
    * Fetch all restaurants.
    */
   static fetchRestaurants(callback) {
+    let cached = null;
+    const db = new RestaurantsDB('restaurants', 1);
 
-    fetch(
-      DBHelper.DATABASE_URL, 
-      { method: 'get'}
-    )
-    .then( (response) => response.json())
-    .then( (json) => {
-      callback(null, json);
-    }) 
+    db.getRestaurants()
+      .then((restaurants) => {
+        if (restaurants.length) {
+          if (!cached)
+            cached = true
+
+          return callback(null, restaurants)
+        }
+      })
+
+    // fetch data from network and update in database
+    fetch(DBHelper.DATABASE_URL(), { headers: { 'Accept': 'application/json' } })
+      .then(response => response.json())
+      .then(restaurants => {
+        db.saveRestaurants(restaurants);
+        if (!cached) return callback(null, restaurants);
+      }).catch((e) => {
+        console.log("Error fetching data from server", e);
+      });
   }
 
   /**
@@ -37,8 +48,8 @@ class DBHelper {
   static fetchRestaurantById(id, callback) {
 
     fetch(DBHelper.DATABASE_URL + id)
-      .then( (response) => response.json())
-      .then( (json) => callback(null, json))
+      .then((response) => response.json())
+      .then((json) => callback(null, json))
   }
 
   /**
@@ -153,7 +164,8 @@ class DBHelper {
       title: restaurant.name,
       url: DBHelper.urlForRestaurant(restaurant),
       map: map,
-      animation: google.maps.Animation.DROP}
+      animation: google.maps.Animation.DROP
+    }
     );
     return marker;
   }

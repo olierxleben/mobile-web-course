@@ -20,12 +20,14 @@
   },
   "homepage": "https://github.com/olivererxleben/mws-restaurant-stage-1#readme",
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.51",
+    "@babel/preset-env": "^7.0.0-beta.51",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.24.4",
     "eslint": "^4.19.1",
     "gulp-autoprefixer": "^5.0.0",
-    "gulp-babel": "^7.0.1",
+    "gulp-babel": "^8.0.0-beta.2",
     "gulp-concat": "^2.6.1",
     "gulp-environments": "^0.1.2",
     "gulp-eslint": "^4.0.2",
@@ -40,6 +42,7 @@
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-jasmine-phantom": "^3.0.0",
-    "gulp-sass": "^4.0.1"
+    "gulp-sass": "^4.0.1",
+    "idb": "^2.1.2"
   }
 }

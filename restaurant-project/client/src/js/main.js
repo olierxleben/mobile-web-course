@@ -4,12 +4,17 @@ let restaurants,
 var map
 var markers = []
 
+// import DBHelper from './dbhelper';
+
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
 document.addEventListener('DOMContentLoaded', (event) => {
+  
   fetchNeighborhoods();
   fetchCuisines();
+
+
 });
 
 
@@ -191,7 +196,7 @@ addMarkersToMap = (restaurants = self.restaurants) => {
 if (('serviceWorker' in navigator)) {
   console.log('Service worker supported');
   navigator.serviceWorker.register('/sw.js').then(function(reg) {
-   // console.log('Registered', reg);
+   console.log('Registered', reg);
   }).catch(function(error) {
     console.log('Registration failed:', error);
   });
