@@ -8,6 +8,8 @@ self.addEventListener('install', (event) => {
         '/restaurant.html',
         '/css/styles.css',
         '/js/main.js',
+        '/js/idb.js',
+        '/js/restaurants_db.js',
         '/js/restaurant_info.js',
         '/js/dbhelper.js',
         '/data/restaurants.json',
@@ -22,6 +24,7 @@ self.addEventListener('install', (event) => {
         '/images/8_400.jpg',
         '/images/9_400.jpg',
         '/images/10_400.jpg',
+        '/favicon.png'
       ]).then(() => {
         console.log('All Files are cached');
         return self.skipWaiting();
@@ -34,6 +37,7 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('activate', (event) => {
   console.log('Service worker activating...');
+  
 });
 
 

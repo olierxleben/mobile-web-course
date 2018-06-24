@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "npm run gulp webserver",
     "gulp": "gulp",
-    "test": "gulp tests"
+    "test": "gulp tests",
+    "audit": "lighthouse http://localhost:8000 --view"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-webserver": "^0.9.1",
     "http-server": "^0.11.1",
+    "lighthouse": "^2.9.4",
     "phantomjs": "^2.1.7"
   },
   "dependencies": {
