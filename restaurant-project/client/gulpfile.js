@@ -65,11 +65,6 @@ gulp.task('imagemin', ['icon:copy'], function() {
 	return gulp.src('./src/images/*.jpg')
 		.pipe(responsive({
 			'*.jpg': [
-				// {
-				// 	width: 200,
-				// 	quality: 70,
-				// 	suffix: '_200'
-				// },
 				{
 					width: 400,
 					quality: 70,
@@ -80,11 +75,6 @@ gulp.task('imagemin', ['icon:copy'], function() {
 					quality: 70,
 					suffix: '_600'
 				},
-				// {
-				// 	width: 800,
-				// 	quality: 70,
-				// 	suffix: '_800'
-				// },
 			]
 		}))
 		.pipe(gulp.dest('./dist/img/'));

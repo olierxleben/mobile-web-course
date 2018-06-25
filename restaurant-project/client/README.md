@@ -39,3 +39,30 @@ I added NPM based approach:
 Start webserver via 
 
     npm start
+
+
+## Stage 2
+
+After cloning, navigate into *client*-folder and execute the following:
+
+    npm install 
+
+After some time you have all dependencies and tools installed. Use
+
+    npm start 
+
+to start development server. Performance and PWA tests can be triggered via command line: 
+
+    npm run audit 
+
+will start lighthouse cli. NOTE: you need to have web-server running and bound at http://localhost:8000 
+
+
+Application uses development server provided by udacity. Its added at *server* folder for convenience. Check out intructions in that readme for more information. :)
+
+### Other files
+
+Icon used and modified in manifest:
+
+https://www.flaticon.com/free-icon/restaurant-cutlery-circular-symbol-of-a-spoon-and-a-fork-in-a-circle_45332#term=restaurant&page=1&position=7
+

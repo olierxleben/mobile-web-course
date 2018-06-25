@@ -4,9 +4,8 @@
   "description": "--- #### _Three Stage Course Material Project - Restaurant Reviews_",
   "main": "Gruntfile.js",
   "scripts": {
-    "dev": "npm run gulp",
-    "gulp": "gulp",
-    "test": "gulp tests",
+    "start": "gulp",
+    "build": "gulp build",
     "audit": "lighthouse http://localhost:8000 --view"
   },
   "repository": {
