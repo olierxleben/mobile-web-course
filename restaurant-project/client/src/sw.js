@@ -48,7 +48,7 @@ self.addEventListener('fetch', (event) => {
     caches.open('restaurant').then((cache) => {
 
       return cache.match(event.request).then((response) => {
-        return response || fetch(event.request, { mode: 'no-cors' }).then((res) => {
+        return response || fetch(event.request).then((res) => {
           cache.put(event.request, res.clone());
           return res;
         });
