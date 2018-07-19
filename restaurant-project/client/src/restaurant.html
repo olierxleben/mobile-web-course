@@ -2,15 +2,13 @@
 <html lang="en">
 
 <head>
-  <!-- setting the viewport to display the website in every devices -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Normalize.css for better cross-browser consistency -->
-  <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
   <!-- Main CSS file -->
-  <link rel="stylesheet" href="css/styles.css" type="text/css">
-  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/restaurant_info.css" type="text/css">
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#F3F3F3"/>
+  <link rel="shortcut icon" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="orange">
+  <meta charset="utf-8">
   <title>Restaurant Info</title>
 </head>
 
@@ -20,16 +18,12 @@
     <!-- Beginning nav -->
     <nav>
       <h1><a href="/">Restaurant Reviews</a></h1>
+      <!-- Beginning breadcrumb -->
+      <ul id="breadcrumb" aria-label="Breadcrumb">
+        <li><a href="/">Home</a></li>
+      </ul>
+      <!-- End breadcrumb -->
     </nav>
-    <!-- Beginning breadcrumb -->
-    <nav id="breadcrumb" aria-label="Breadcrumb">
-      <ol id="breadcrumb-ol">
-        <li>
-          <a href="/">Home</a>
-        </li>
-      </ol>
-    </nav>
-    <!-- End breadcrumb -->
     <!-- End nav -->
   </header>
   <!-- End header -->
@@ -38,21 +32,60 @@
   <main id="maincontent">
     <!-- Beginning map -->
     <section id="map-container">
-      <div id="map" role="application"></div>
+      <div id="map" role="application" aria-label="Google Maps with marks of restaurants"></div>
     </section>
     <!-- End map -->
     <!-- Beginning restaurant -->
-    <section id="restaurant-container" tabindex="-1" >
-      <h2 id="restaurant-name" tabindex="0"></h2>
-      <img id="restaurant-img" tabindex="0">
-      <p id="restaurant-cuisine" tabindex="0"></p>
-      <p id="restaurant-address" tabindex="0"></p>
-      <table id="restaurant-hours"></table>
+    <section id="restaurant-container">
+      <div id="restaurant-header">
+        <h2 id="restaurant-name"></h2>
+        <div id="favorite-toggle-button-container"></div>
+      </div>
+      <div id="restaurant-overview">
+        <img id="restaurant-img">
+        <p id="restaurant-cuisine"></p>
+      </div>
+      <div id="restaurant-details">
+        <p id="restaurant-address"></p>
+        <button id="show-map-button" class="button">Show on map</button>
+        <table id="restaurant-hours"></table>
+      </div>
     </section>
     <!-- end restaurant -->
     <!-- Beginning reviews -->
-    <section id="reviews-container"  tabindex="-1">
-      <ul id="reviews-list" tabindex="-1" aria-label="Reviews"></ul>
+    <section id="reviews-container">
+      <div id="reviews-header">
+        <h3>Reviews</h3>
+        <div id="form-toggle-button-container"></div>
+      </div>
+      <ul id="reviews-list">
+        <li id="review-form-container">
+          <form action="http://localhost:1337/reviews/" method="POST" id="review-form" aria-label="Write your own review" class="form-show">
+            <h4 class="review-header">
+              <p class="review-name">
+                <input type="text" name="name" id="review-form-name" placeholder="Enter your name" aria-label="Enter your name" required>
+              </p>
+              <div class="review-date-container">
+                <p class="review-date" id="review-form-date"></p>
+              </div>
+            </h4>
+            <p class="review-rating"><span>Rating:</span>
+              <select name="rating" id="review-form-rating" aria-label="Choose your rating" required>
+                <option value="" selected disabled hidden></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </p>
+            <p class="review-comments">
+              <textarea type="text" name="comments" id="review-form-comments" rows="5" placeholder="Share your experience" aria-label="Share your experience" required></textarea>
+            </p>
+            <button type="submit" id="submit-button" class="button">Submit your review</button>
+          </form>
+        </li>
+      </ul>
     </section>
     <!-- End reviews -->
   </main>
@@ -65,18 +98,11 @@
   <!-- End footer -->
 
   <!-- Beginning scripts -->
-  
-  <script type="application/javascript" charset="utf-8" src="js/idb.js"></script>
-  <script type="application/javascript" charset="utf-8" src="js/restaurants_db.js"></script>
-  <script type="application/javascript" charset="utf-8" src="js/dbhelper.js"></script>
-  
-  
-  <!-- Main javascript file -->
+  <script type="text/javascript" src="js/idb.js"></script>
+  <script type="text/javascript" src="js/dbhelper.js"></script>
   <script type="text/javascript" src="js/restaurant_info.js"></script>
-  <!-- <script type="text/javascript" src="js/bundle.js"></script> -->
-  <!-- Google Maps -->
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPMG_7q4ZMgYl5YObmtbvb0IScn7jQ3mg&libraries=places&callback=initMap"></script>
   <!-- End scripts -->
+
 </body>
 
 </html>

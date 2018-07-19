@@ -36,12 +36,12 @@ Most of the code in this project has been written to the ES6 JavaScript specific
 
 I added NPM based approach:
 
-Start webserver via 
+Start dev webserver via 
 
     npm start
 
 
-## Stage 2
+## Stage 2 + 3
 
 After cloning, navigate into *client*-folder and execute the following:
 
@@ -59,6 +59,16 @@ will start lighthouse cli. NOTE: you need to have web-server running and bound a
 
 
 Application uses development server provided by udacity. Its added at *server* folder for convenience. Check out intructions in that readme for more information. :)
+
+## Stage 3
+
+Refactored application alot. 
+
+updated 
+
+    npm run audit
+
+will now also start the gulp webserver and run lighthouse cli afterwards
 
 ### Other files
 

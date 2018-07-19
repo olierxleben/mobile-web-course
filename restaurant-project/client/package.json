@@ -1,49 +1,32 @@
 {
-  "name": "mws-restaurant-stage-1",
+  "name": "mws-stage-3-app",
   "version": "1.0.0",
   "description": "--- #### _Three Stage Course Material Project - Restaurant Reviews_",
-  "main": "Gruntfile.js",
+  "main": "sw.js",
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
-    "audit": "lighthouse http://localhost:8000 --view"
+    "audit": "gulp webserver & lighthouse http://localhost:8000"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/olivererxleben/mws-restaurant-stage-1.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/olivererxleben/mws-restaurant-stage-1/issues"
-  },
-  "homepage": "https://github.com/olivererxleben/mws-restaurant-stage-1#readme",
+  "author": "Udacity + Oliver Erxleben",
+  "license": "UNLICENSED",
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.51",
-    "@babel/preset-env": "^7.0.0-beta.51",
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "browser-sync": "^2.24.4",
-    "eslint": "^4.19.1",
+    "@babel/core": "^7.0.0-beta.54",
+    "@babel/preset-env": "^7.0.0-beta.54",
+    "browser-sync": "^2.24.5",
+    "eslint": "^5.1.0",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
-    "gulp-babel": "^8.0.0-beta.2",
+    "gulp-babel": "^7.0.1",
     "gulp-concat": "^2.6.1",
     "gulp-environments": "^0.1.2",
-    "gulp-eslint": "^4.0.2",
+    "gulp-eslint": "^5.0.0",
     "gulp-gzip": "^1.4.2",
-    "gulp-minify": "^3.0.2",
+    "gulp-minify": "^3.1.0",
     "gulp-responsive-images": "0.0.3",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-webserver": "^0.9.1",
-    "http-server": "^0.11.1",
-    "lighthouse": "^2.9.4",
-    "phantomjs": "^2.1.7"
-  },
-  "dependencies": {
-    "gulp": "^3.9.1",
-    "gulp-jasmine-phantom": "^3.0.0",
-    "gulp-sass": "^4.0.1",
-    "idb": "^2.1.2"
+    "lighthouse": "^3.0.2",
+    "gulp-sass": "^4.0.1"
   }
 }
